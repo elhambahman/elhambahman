@@ -2,11 +2,11 @@
 pragma solidity 0.8.16 ;
 import "https://github.com/metafy-social/web3-smart-contracts/blob/10ac898f2a6d9b094f2e08af5daa07887e640807/contracts/Misc/Vesting_Contract.sol#L37";
 library incanddec{
-    function inc(uint ab)internal pure returns(uint){
+    function inc(uint a)internal pure returns(uint){
         return a++ ;
     }
-    function dec(uint ab)internal pure returns(uint){
-        return ab--;
+    function dec(uint a)internal pure returns(uint){
+        return a--;
     }
 }
 
