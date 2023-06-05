@@ -1,0 +1,53 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"msw/msw1.sol": "incanddec"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://github.com/metafy-social/web3-smart-contracts/blob/10ac898f2a6d9b094f2e08af5daa07887e640807/contracts/Misc/Vesting_Contract.sol#L37": {
+			"keccak256": "0x32737941d7534da9753b592dd2a78f9115ef356c60353c920abbd069ed22414d",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://98935bfed7afaa2e9a30577ee9908550b9e22b7b74189104eb5f643acf82311c",
+				"dweb:/ipfs/QmbB1axEgy5upikgz5tkKaFGDwBA8csLjUNZgqbXWZfYMA"
+			]
+		},
+		"msw/msw1.sol": {
+			"keccak256": "0x6441c42a8be7476118d9eb563f43779c7763453734fdafe0714ca79884eacb85",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://84df4bd343e64888242d3300f53851ae2ad949fa4958697603b7f45736aae902",
+				"dweb:/ipfs/Qmbz1xbLYtgzTMhvSK817izg5hEdtj14WDFfjBhDgudBfS"
+			]
+		}
+	},
+	"version": 1
+}
