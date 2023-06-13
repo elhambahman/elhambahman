@@ -18,7 +18,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"msw/msw1.sol": "incanddec"
+			"project1.sol": "incanddec"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -40,7 +40,7 @@
 				"dweb:/ipfs/QmbB1axEgy5upikgz5tkKaFGDwBA8csLjUNZgqbXWZfYMA"
 			]
 		},
-		"msw/msw1.sol": {
+		"project1.sol": {
 			"keccak256": "0x6441c42a8be7476118d9eb563f43779c7763453734fdafe0714ca79884eacb85",
 			"license": "MIT",
 			"urls": [
