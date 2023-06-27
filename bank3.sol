@@ -5,20 +5,14 @@ pragma solidity 0.8.18 ;
      event depvosit(address indexed sender , uint amount);
      event Moneytransfer(address indexed sender , address indexed Receiver , uint amount );
      event Withdraw(address indexed sender ,uint amount ,uint balance, bool success);
-     event Lending(address indexed sender , uint amount ,uint balance, bool success);
-     //تایید اورنر
+     
      mapping(address => bool)public isowner;
-     //مشخص شدن موجودی
      mapping(address => uint)public balance;
      mapping(address => mapping(address => bool)) private receiver;
      sregister[]private sregisters;
      transaction[]private transactions;
      address public owner; 
      address payable received;
-     address payable borrower ;
-     address payable lender ;
-     uint amount;
-     bool approved;
 
 
 struct sregister{
@@ -41,16 +35,6 @@ struct transaction{
      uint amount;
      uint Operator;
      uint txIndex;
-}
-
-struct LoanRequest{
-    address payable borrower;
-    address payable lender;
-    uint interestRate;
-    uint repaymentdate;
-    uint amount; 
-    bool approved;
-
 }
 
      receive ()external payable{
@@ -87,7 +71,6 @@ struct LoanRequest{
               return true;
         } 
 
-//برداشت از حساب
         function WIthdraw( uint _amount)public payable returns(uint){
             require(balance[msg.sender] >= amount);
             balance[msg.sender] -= _amount ;
@@ -95,34 +78,6 @@ struct LoanRequest{
               require(sent , "Failed to complete");  
               return balance[msg.sender];  
     }
-
-    // تایید کننده وام 
-    function approveLoan()public payable{
-        //تایید کننده وام دهنده باشه
-            require(msg.sender == lender , "only lender can approve the loan");
-            //مقدار ارسالی مساوی با مقدار درخواستی باشه
-            require(msg.value == amount );
-            //مقدار وام با مقدار درخواستی یکی باشه
-            require(msg.value == amount , "Amount sent must match loan amount");
-            //تایید بشه
-            approved = true ;
-             require(amount <= address(this).balance);
-            borrower.transfer(amount);
-
-        }
-
-        //جزییات وام 
-     function loenDetails()public view returns(address , uint , bool){
-         return(borrower , amount, approved);
-     }
-
-     //درخواست وام
-function borrowerrequest( uint _amount)public payable{
-         amount = _amount;
-         balance[msg.sender] += 50 ether ;
-         balance[msg.sender] += _amount ;
-
-   }
 
      } 
 
