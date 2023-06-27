@@ -17,10 +17,7 @@ pragma solidity 0.8.18 ;
      address payable received;
      address payable borrower ;
      address payable lender ;
-     uint public loanAmount;
      uint amount;
-     uint interestRate ;
-     uint repaymentdata;
      bool approved;
 
 
@@ -84,8 +81,8 @@ struct LoanRequest{
         }
 
         function moneytransfer( address _received, uint _amount)public payable returns (bool){
-              require(balance[msg.sender] >= amount);
-              (bool sent , ) = received.call{value : amount}("sent");
+              require(balance[msg.sender] >= _amount);
+              (bool sent , ) = _received.call{value : amount}("sent");
                require(sent , "Failed to complete");   
               return true;
         } 
@@ -99,33 +96,33 @@ struct LoanRequest{
               return balance[msg.sender];  
     }
 
-function borrowerrequest(address payable _borrower , uint _intretrate , uint _repaymentdata, uint _amount)public payable{
-         borrower = _borrower ; 
-         interestRate = _intretrate;
-         repaymentdata = _repaymentdata ;
-         amount = _amount;
-         balance[msg.sender] += 50 ether ;
-         require(msg.value == _amount , "The sent amount must be equal to the requested amount");
-         require(_amount <= address(this).balance, "The contract does not have enough balance to fulfill the loan request");
-         balance[msg.sender] += _amount ;
-
-      }
-    // تایید کننده وام ویژگی
+    // تایید کننده وام 
     function approveLoan()public payable{
         //تایید کننده وام دهنده باشه
             require(msg.sender == lender , "only lender can approve the loan");
+            //مقدار ارسالی مساوی با مقدار درخواستی باشه
+            require(msg.value == amount );
             //مقدار وام با مقدار درخواستی یکی باشه
             require(msg.value == amount , "Amount sent must match loan amount");
             //تایید بشه
             approved = true ;
+             require(amount <= address(this).balance);
             borrower.transfer(amount);
 
         }
 
         //جزییات وام 
-     function loenDetails()public view returns(address , uint , uint , uint , bool){
-         return(borrower ,interestRate , repaymentdata , amount, approved);
+     function loenDetails()public view returns(address , uint , bool){
+         return(borrower , amount, approved);
      }
+
+     //درخواست وام
+function borrowerrequest( uint _amount)public payable{
+         amount = _amount;
+         balance[msg.sender] += 50 ether ;
+         balance[msg.sender] += _amount ;
+
+   }
 
      } 
 
