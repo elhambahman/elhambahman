@@ -13,8 +13,16 @@ pragma solidity 0.8.18 ;
      mapping(address => mapping(address => bool)) private receiver;
      sregister[]private sregisters;
      transaction[]private transactions;
-     address public owner;
-     address public received;
+     address public owner; 
+     address payable received;
+     address payable borrower ;
+     address payable lender ;
+     uint public loanAmount;
+     uint amount;
+     uint interestRate ;
+     uint repaymentdata;
+     bool approved;
+
 
 struct sregister{
     address to ;
@@ -38,6 +46,15 @@ struct transaction{
      uint txIndex;
 }
 
+struct LoanRequest{
+    address payable borrower;
+    address payable lender;
+    uint interestRate;
+    uint repaymentdate;
+    uint amount; 
+    bool approved;
+
+}
 
      receive ()external payable{
      emit depvosit(msg.sender , msg.value );
@@ -60,25 +77,56 @@ struct transaction{
         function getsregister()public view returns(sregister[] memory){
             return sregisters;
         }
-
-        function moneytransfer(address sender , uint amount)public payable returns (bool){
-              balance[msg.sender] += amount;
-              balance[msg.sender] >= amount ;
-              balance [msg.sender] -= amount ;
-              if(owner == received){
-                 balance[received] += amount;
-              }
-              else{
-              (bool sent , ) = received.call{value : amount}("sent");
-              require(sent , "Failed to complete");   
-              }
-              return true;
+        function Deposit(uint _amount)public payable returns(uint){
+            balance[msg.sender]+= _amount;
+            emit depvosit(msg.sender , amount);
+            return balance[msg.sender];
         }
 
-        function WIthdraw(address sender , uint amount)public payable returns(uint){
-              balance [msg.sender] -= amount ; 
+        function moneytransfer( address _received, uint _amount)public payable returns (bool){
+              require(balance[msg.sender] >= amount);
+              (bool sent , ) = received.call{value : amount}("sent");
+               require(sent , "Failed to complete");   
+              return true;
+        } 
+
+//برداشت از حساب
+        function WIthdraw( uint _amount)public payable returns(uint){
+            require(balance[msg.sender] >= amount);
+            balance[msg.sender] -= _amount ;
               (bool sent , )= msg.sender.call{value : amount}("sent");
-              require(sent , "Failed to complete") ;    
-              return balance[msg.sender];         
+              require(sent , "Failed to complete");  
+              return balance[msg.sender];  
     }
-    }
+
+function borrowerrequest(address payable _borrower , uint _intretrate , uint _repaymentdata, uint _amount)public payable{
+         borrower = _borrower ; 
+         interestRate = _intretrate;
+         repaymentdata = _repaymentdata ;
+         amount = _amount;
+         balance[msg.sender] += 50 ether ;
+         require(msg.value == _amount , "The sent amount must be equal to the requested amount");
+         require(_amount <= address(this).balance, "The contract does not have enough balance to fulfill the loan request");
+         balance[msg.sender] += _amount ;
+
+      }
+    // تایید کننده وام ویژگی
+    function approveLoan()public payable{
+        //تایید کننده وام دهنده باشه
+            require(msg.sender == lender , "only lender can approve the loan");
+            //مقدار وام با مقدار درخواستی یکی باشه
+            require(msg.value == amount , "Amount sent must match loan amount");
+            //تایید بشه
+            approved = true ;
+            borrower.transfer(amount);
+
+        }
+
+        //جزییات وام 
+     function loenDetails()public view returns(address , uint , uint , uint , bool){
+         return(borrower ,interestRate , repaymentdata , amount, approved);
+     }
+
+     } 
+
+    
