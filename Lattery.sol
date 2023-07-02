@@ -12,21 +12,16 @@ contract Lattery{
 constructor(){
     manager = msg.sender;
 }
-//ثبت نام در لاتاری
-function register(uint amount)public payable returns(bool){
-    //1اتر واریز کنه
-    amount = 1 ether;
+function register()public payable returns(bool){
      require(msg.value > 1 ether);
-     //اضافه اش کن به شرکت کنندگان
      players.push(payable(msg.sender));
      return true;
     }
-//انتخاب به صورت تصادفی
     function random()private view returns(uint){
       uint(keccak256(abi.encodePacked(block.timestamp,block.difficulty,msg.sender))) % 50000;
       abi.encodePacked(block.timestamp,block.difficulty,players.length);
+      return value;
         } 
-//تعیین شماره برنده 
     function pickWinner()public {
      uint index = random() % players.length;
       players[index].transfer(address(this).balance);
