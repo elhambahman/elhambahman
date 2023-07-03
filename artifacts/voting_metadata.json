@@ -1,0 +1,273 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ElectoralWard",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_VotingSection",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bytes",
+						"name": "options",
+						"type": "bytes"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "voters",
+						"type": "uint256"
+					}
+				],
+				"name": "Voters",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "BallotBoxAdress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ElectoralWard",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "EnableElectronicBallotBox",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "EnablePollWorker",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "FinishVoting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "FirstPrinting",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "zonal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "votingSection",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "timeStampStart",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_CandidateA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_CandidateB",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_BlankVotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_NullVotes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_ElectorID",
+						"type": "uint256"
+					}
+				],
+				"name": "InsertElectorID",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "LastPrinting",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "zonal",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_VotingSection",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_TimeStampEnd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_CandidateA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_CandidateB",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_BlankVotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_NullVotes",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "RemoteControllAdress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "StartVoting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "voto",
+						"type": "uint256"
+					}
+				],
+				"name": "ToVote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "VotingSection",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"voting1.sol": "voting"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"voting1.sol": {
+			"keccak256": "0xfc6d3160c6d10ad9c12c94f8b8b3f335632c539f217b71289d8d423988acfc0b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://be40f99bb52447b7fbfe2f78d9d5b10593898b2f36b969af3a17a1ea492263be",
+				"dweb:/ipfs/Qmdop88gYdb99kDA3V7uJ2919aeupbHo9zQMfagzQ5eD3A"
+			]
+		}
+	},
+	"version": 1
+}
