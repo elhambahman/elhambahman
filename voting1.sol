@@ -3,7 +3,7 @@ pragma solidity 0.8.18 ;
 
  contract voting {
          // تعریف رویداد اعلام رای دهندگان
-          event Voters(bytes options , uint voters);
+          event Voters(uint zonal, uint VotingSection, uint TimeStampEnd, uint CandidateA, uint CandidateB, uint BlankVotes, uint NullVotes);
            //آدرس صندوق رای
           address public BallotBoxAdress;
           //آدرس کنتزل از راه دور
@@ -143,7 +143,7 @@ pragma solidity 0.8.18 ;
     }
 
 //تابعی برای بازگرداندن چاپ نهایی نتایج رای گیری
-    function LastPrinting() public view verification1() returns(uint zonal, uint _VotingSection, uint _TimeStampEnd, uint _CandidateA, uint _CandidateB, uint _BlankVotes, uint _NullVotes){ // retorna o resultado da votação naquela BallotBoxAdress
+    function LastPrinting() public view verification1() returns(uint zonal, uint _VotingSection, uint _TimeStampEnd, uint _CandidateA, uint _CandidateB, uint _BlankVotes, uint _NullVotes){ 
 
 
         return( ElectoralWard,VotingSection, TimeStampStart, CandidateA, CandidateB, BlankVotes, NullVotes);
