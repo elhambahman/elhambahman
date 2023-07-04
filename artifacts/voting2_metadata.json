@@ -1,0 +1,206 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_Remotecontrol",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_ballotbox",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_Votingsection",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "Votingsection",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestampstart",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "candidateA",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "candidateB",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "blankvotes",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "Nullvotes",
+						"type": "uint256"
+					}
+				],
+				"name": "voting",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "Endofvoting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Finalresults",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_votingsection",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_timeStampStart",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_TimeStampEnd",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_blankvotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_NullVotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_candidateA",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_candidateB",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "Remotecontrol",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "StartVoting",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ballotbox",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "Vote",
+						"type": "uint256"
+					}
+				],
+				"name": "desiredvote",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"sss.sol": "voting2"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"sss.sol": {
+			"keccak256": "0x28f4c458ecc06302955ce70abb9a0b2e9d08b35ebf6508fdc75c7e86dd37d845",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2c9327cfe7fd227bdade3d5ae89a5b4f5cdf08276ceac3dfdf98644e07f1be77",
+				"dweb:/ipfs/Qmeg51DXHQ43hNfw6QdaY8mCNzcFwYw6iZYSnAxCVTLgCH"
+			]
+		}
+	},
+	"version": 1
+}
