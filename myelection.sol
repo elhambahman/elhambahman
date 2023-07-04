@@ -30,6 +30,7 @@ constructor (address _Remotecontrol, address _ballotbox , uint _Votingsection )p
   Remotecontrol = _Remotecontrol; 
   ballotbox = _ballotbox ;
   votingsection = _Votingsection;
+    ballotbox = msg.sender;
 }
 
 modifier Votingconditions(){
