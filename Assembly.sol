@@ -35,14 +35,14 @@
          Laws.push(newlaw({timestampstart : _timestampstart ,totalvotes : _totalvotes, Against : _Against , agree : _agree , noidea : _noidea , void : _void ,TimeStampEnd : _TimeStampEnd }));
      }
     
-    function hasRepresentatives(uint vote)public returns(uint ,uint , uint , uint , uint){
-        if(vote ==  Laws[Laws.length - 1].agree){
+    function hasRepresentatives(uint vote)public onlyRepresentative returns(uint ,uint , uint , uint , uint){
+        if(vote == 1){
             Laws[Laws.length - 1].agree++ ;
         }
-        if(vote ==  Laws[Laws.length - 1].Against){
+        if(vote ==  2){
             Laws[Laws.length - 1]. Against++;
         }
-        if( vote ==  Laws[Laws.length - 1].noidea ){
+        if( vote == 3 ){
        Laws[Laws.length - 1].noidea++ ;
         }
         else{
@@ -55,7 +55,7 @@
         }
 
 
- function endOfVoting()public returns(uint _timestampstart, uint _totalvotes , uint _agree , uint _Against, uint _noidea , uint _void, uint _TimeStampEnd){
+ function endOfVoting()public validTimestamp returns(uint _timestampstart, uint _totalvotes , uint _agree , uint _Against, uint _noidea , uint _void, uint _TimeStampEnd){
       Laws[Laws.length - 1].TimeStampEnd = block.timestamp ;
       return( Laws[Laws.length - 1].timestampstart ,  Laws[Laws.length - 1].totalvotes ,  Laws[Laws.length - 1].agree ,  Laws[Laws.length - 1].Against ,  Laws[Laws.length - 1].noidea ,  Laws[Laws.length - 1].void ,  Laws[Laws.length - 1].TimeStampEnd );
 
