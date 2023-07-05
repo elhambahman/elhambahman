@@ -27,7 +27,7 @@
      }
 
      modifier validTimestamp{
-         require(block.timestamp < Laws.timestampstart + 10 minutes);
+         require(block.timestamp < Laws[Laws.length - 1].timestampstart + 10 minutes);
          _;
      }
 
@@ -36,28 +36,28 @@
      }
     
     function hasRepresentatives(uint vote)public returns(uint ,uint , uint , uint , uint){
-        if(vote == Laws.agree){
-            Laws.agree++ ;
+        if(vote ==  Laws[Laws.length - 1].agree){
+            Laws[Laws.length - 1].agree++ ;
         }
-        if(vote == Laws.Against){
-           Laws. Against++;
+        if(vote ==  Laws[Laws.length - 1].Against){
+            Laws[Laws.length - 1]. Against++;
         }
-        if( vote == Laws.noidea ){
-       Laws.noidea++ ;
+        if( vote ==  Laws[Laws.length - 1].noidea ){
+       Laws[Laws.length - 1].noidea++ ;
         }
         else{
-           Laws.void++ ;
+            Laws[Laws.length - 1].void++ ;
         }
       
-       Laws.totalvotes ++;
-        emit voting(Laws.totalvotes, Laws.agree, Laws.Against, Laws.noidea, Laws.void);
-        return(Laws.totalvotes, Laws.agree , Laws.Against, Laws.noidea , Laws.void);
+       Laws[Laws.length - 1].totalvotes ++;
+        emit voting( Laws[Laws.length - 1].totalvotes,  Laws[Laws.length - 1].agree, Laws[Laws.length - 1].Against,  Laws[Laws.length - 1].noidea,  Laws[Laws.length - 1].void);
+        return( Laws[Laws.length - 1].totalvotes,  Laws[Laws.length - 1].agree ,  Laws[Laws.length - 1].Against, Laws[Laws.length - 1].noidea ,  Laws[Laws.length - 1].void);
         }
 
 
  function endOfVoting()public returns(uint _timestampstart, uint _totalvotes , uint _agree , uint _Against, uint _noidea , uint _void, uint _TimeStampEnd){
-      Laws.TimeStampEnd = block.timestamp ;
-      return(Laws.timestampstart , Laws.totalvotes , Laws.agree , Laws.Against , Laws.noidea , Laws.void , Laws.TimeStampEnd );
+      Laws[Laws.length - 1].TimeStampEnd = block.timestamp ;
+      return( Laws[Laws.length - 1].timestampstart ,  Laws[Laws.length - 1].totalvotes ,  Laws[Laws.length - 1].agree ,  Laws[Laws.length - 1].Against ,  Laws[Laws.length - 1].noidea ,  Laws[Laws.length - 1].void ,  Laws[Laws.length - 1].TimeStampEnd );
 
  }
 

@@ -1,0 +1,284 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "timestampstart",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "TimeStampEnd",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "namelaw",
+						"type": "string"
+					}
+				],
+				"name": "time",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalvotes",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "agree",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "Against",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "noidea",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "void",
+						"type": "uint256"
+					}
+				],
+				"name": "voting",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "Chairman",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timestampstart",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_totalvotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_Against",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_agree",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_noidea",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_void",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_TimeStampEnd",
+						"type": "uint256"
+					}
+				],
+				"name": "addlow",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "endOfVoting",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_timestampstart",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_totalvotes",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_agree",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_Against",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_noidea",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_void",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_TimeStampEnd",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "vote",
+						"type": "uint256"
+					}
+				],
+				"name": "hasRepresentatives",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "isrepresentatives",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "representatives",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"Assembly.sol": "Newlaw"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"Assembly.sol": {
+			"keccak256": "0xb3afe84cc66bcad280e55c99d0be7fcc4fc40e49fa31ab0d459fa25e172933ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e2155c7308980852a14ae5d161b034e827c81661a3d06cf20ecab253fd66a60f",
+				"dweb:/ipfs/QmQP7PcRYpzfbvxR1hVZRz79cKXYbCBbDRsj6WcUc8MZfT"
+			]
+		}
+	},
+	"version": 1
+}
