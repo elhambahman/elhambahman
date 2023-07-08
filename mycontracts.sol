@@ -12,7 +12,7 @@ contract MyToken  {
 
     }
 function getTotalSupply()public view returns(uint){
-  return token.totalsupply();
+  return token.totalSupply();
 }
   
 }
