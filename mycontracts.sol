@@ -14,5 +14,8 @@ contract MyToken  {
 function getTotalSupply()public view returns(uint){
   return token.totalSupply();
 }
-  
+   function getbalanceOf(address account)public view returns (uint){ 
+    return token.balanceOf(account);
+
+    }
 }
