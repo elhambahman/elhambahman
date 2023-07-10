@@ -179,7 +179,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"sss.sol": "voting2"
+			"myelection.sol": "voting2"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -193,12 +193,12 @@
 		"remappings": []
 	},
 	"sources": {
-		"sss.sol": {
-			"keccak256": "0x28f4c458ecc06302955ce70abb9a0b2e9d08b35ebf6508fdc75c7e86dd37d845",
+		"myelection.sol": {
+			"keccak256": "0x6f7a6146893d4caceec32889cbe002717a9850884d5ed44b2bb9f924c1149260",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://2c9327cfe7fd227bdade3d5ae89a5b4f5cdf08276ceac3dfdf98644e07f1be77",
-				"dweb:/ipfs/Qmeg51DXHQ43hNfw6QdaY8mCNzcFwYw6iZYSnAxCVTLgCH"
+				"bzz-raw://4fea1c41775559e1483a41be921fd49f90a90a80721174a7163173693a3f95de",
+				"dweb:/ipfs/QmefErn2SUquVeEPwc8LWYdbTJpW4xUHRegQByNkdrvscL"
 			]
 		}
 	},
