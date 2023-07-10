@@ -34,16 +34,18 @@ contract ERC20 is IERC20 {
         return true;
     }
 
-    function mint(uint amount) external {
+    function mint(uint amount) external returns(bool) {
         balanceOf[msg.sender] += amount;
         totalSupply += amount;
         emit Transfer(address(0), msg.sender, amount);
+        return true;
     }
 
-    function burn(uint amount) external {
+    function burn(uint amount) external{
         balanceOf[msg.sender] -= amount;
         totalSupply -= amount;
         emit Transfer(msg.sender, address(0), amount);
+
     }
 }
 
