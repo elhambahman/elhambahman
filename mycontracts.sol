@@ -33,9 +33,10 @@ function getTotalSupply()public view returns(uint){
     function getapprove(address spender, uint amount) public returns (bool){
       return token.approve(spender , amount);
     }
-    function getmint(address tokenAddress , uint amount)public view returns(uint){
-       return  token.mint(amount);
-    }
+   function Mint(address tokenAddress, uint amount)public returns(bool){
+      token.mint(tokenAddress,amount);
+      return true;
+       }
 
 
 }
