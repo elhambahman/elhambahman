@@ -59,12 +59,12 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "owner",
+						"name": "",
 						"type": "address"
 					},
 					{
 						"internalType": "address",
-						"name": "spender",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -107,7 +107,7 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "account",
+						"name": "",
 						"type": "address"
 					}
 				],
@@ -130,15 +130,73 @@
 						"type": "uint256"
 					}
 				],
-				"name": "mint",
+				"name": "burn",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
 				"type": "function"
 			},
 			{
@@ -209,8 +267,27 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"Approval(address,address,uint256)": {
+					"details": "Emitted when the allowance of a `spender` for an `owner` is set by a call to {approve}. `value` is the new allowance."
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "Emitted when `value` tokens are moved from one account (`from`) to another (`to`). Note that `value` may be zero."
+				}
+			},
 			"kind": "dev",
 			"methods": {},
+			"stateVariables": {
+				"allowance": {
+					"details": "Returns the remaining number of tokens that `spender` will be allowed to spend on behalf of `owner` through {transferFrom}. This is zero by default. This value changes when {approve} or {transferFrom} are called."
+				},
+				"balanceOf": {
+					"details": "Returns the value of tokens owned by `account`."
+				},
+				"totalSupply": {
+					"details": "Returns the value of tokens in existence."
+				}
+			},
 			"version": 1
 		},
 		"userdoc": {
@@ -221,7 +298,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"IERC20.sol": "IERC20"
+			"token.sol": "ERC20"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -235,12 +312,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"IERC20.sol": {
-			"keccak256": "0x9bbc06707929cafd960c115baa07b26e0f9362005918876782eb3fe4ae300a62",
+		"https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x446f5eba28390de7608b93345376c1144758ab48783c26df8aa14b6f2a7987bc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a135c74cfa5ea49f289c6546589ee9c787a58ec8c3d03b5b597607016f41bb9d",
-				"dweb:/ipfs/QmYSKkoKyszyV7c8LyW6Vx1ENEhtJoVWphcvE18jDvLzHb"
+				"bzz-raw://701c9ebd54d50d7508efe7eb253cd50d4fc9fdbd161db886ae889d0e3487242e",
+				"dweb:/ipfs/QmYF5uh258PwhgxYMZULiyG8b8RN4SBAbU7igQGyfe9QnB"
+			]
+		},
+		"token.sol": {
+			"keccak256": "0x7281d3ec625bc0aceddf1ea0fdc0b6e962e7c7932b176966e191e3d699410aab",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://68277b5c2a8f65b4b72147100366f315a5e78bfce472de41f01af366fd8ddea0",
+				"dweb:/ipfs/QmfUFidXhQMypm8xr9rzHvaZEDzsKqakVAvRtok2s7EP1R"
 			]
 		}
 	},

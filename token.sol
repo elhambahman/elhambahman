@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18 ;
+pragma solidity 0.8.19 ;
 import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/IERC20.sol";
 contract ERC20 is IERC20 {
     uint public totalSupply;
@@ -41,11 +41,12 @@ contract ERC20 is IERC20 {
         return true;
     }
 
-    function burn(uint amount) external{
+    function burn(uint amount) external {
         balanceOf[msg.sender] -= amount;
         totalSupply -= amount;
         emit Transfer(msg.sender, address(0), amount);
-
+    
     }
+     
 }
 

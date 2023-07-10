@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.20+commit.a1b79de6"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -166,9 +166,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"mycontracts.sol": "MyToken"
+			"mycontracts.sol": "mycontract"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -189,11 +189,11 @@
 			]
 		},
 		"mycontracts.sol": {
-			"keccak256": "0xbe1f09867787b0109a11ce35c3c0f1029380890f241b6d625d0a3ef4b7194e16",
+			"keccak256": "0x7ecee124e3d20f844f8695873ede6d9f64d69a41ab69e40e52ab4e26d9a73467",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://96c15941b02b70ce01975d16335d8ffe79bacff0a3e7eedd347537eaf39a096f",
-				"dweb:/ipfs/QmbGGtvJeECw896DomAPbkhPWJxf6awak4izLgQ4DgH68f"
+				"bzz-raw://238b17c6b8a9a381a350bc1a6970dc5ce05190ec7abd155917991f5544ad5609",
+				"dweb:/ipfs/QmbjZEdJeMSebrzU8vMGoDfvFLVvntQNXdW8JKC7tRXjk5"
 			]
 		}
 	},

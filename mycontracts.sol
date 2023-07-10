@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.19;
+pragma solidity ^0.8.18;
  import "./IERC20.sol";
-contract MyToken  {
+contract mycontract  {
         IERC20 public token ;
 
 
@@ -21,7 +21,7 @@ function getTotalSupply()public view returns(uint){
     }
     function  gettransfer(address recipient, uint amount)public  returns(bool){
      token.transfer(recipient , amount );
-     return true; 
+     return true;    
     }
 
     function getallowance(address owner, address spender) public view returns (uint){
@@ -32,10 +32,11 @@ function getTotalSupply()public view returns(uint){
        token.approve(spender , amount);
        return true;
     }
-   
+
     function Mint( uint amount)public returns(bool){
-       token.mint(amount);
-       return true;
+      token.mint(amount);
+      return true;
        }
+
 
 }
