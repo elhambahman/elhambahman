@@ -123,6 +123,30 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "tokenAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "totalSupply",
 				"outputs": [
@@ -217,11 +241,11 @@
 	},
 	"sources": {
 		"IERC20.sol": {
-			"keccak256": "0x4a8bdc5d8d2fe70d30a3c6dc7cf184b2a5cfeed37ae3e82ed1728bf10a9327d1",
+			"keccak256": "0xab6a206e3d20bf3b84e1be564b63aae807f6a450136e95cbce1723df2f97bd62",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4baffa03257b7818a872fe46d6df7147dd83e80ffd760a68aff3c08bf29e8fb2",
-				"dweb:/ipfs/QmSfDVVdKsEWygoNGiAzQRAQCrgcCW1JXaJcUQWLDTspsw"
+				"bzz-raw://cf0f49824685afc9a1f97f6d6c59703e6fdc04278c4f90f4440efaa7311a1ce9",
+				"dweb:/ipfs/QmZyNT99nqf796unJhvZmMS35SPaspSCT7nViQLxzeTLS7"
 			]
 		}
 	},
