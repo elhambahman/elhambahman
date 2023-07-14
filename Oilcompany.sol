@@ -53,7 +53,7 @@ function ChangeShareholders( address chairman , address to , uint amount , uint 
   require( to != address(0) , "The address is wrong" );
   require(chairman != address(0), "Chairman is not set");
   require(chairman == msg.sender || shareholder[msg.sender] , "This request is not allowed");
-  require( amount <= shares[msg.sender] , "More than the limit");
+  require(amount > 0 && amount <= shares[msg.sender] , "More than the limit");
   shares[msg.sender] -= amount ;
   shares[to] += amount;
   emit Transferofshares(to ,amount, timestamp);
