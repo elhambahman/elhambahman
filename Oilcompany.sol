@@ -5,11 +5,11 @@ contract Oilcompany{
     event Dailyproduction(uint barrel ,uint price,  uint timestamp );
     event Shareholders(address indexed shareholders, uint percentage, uint timestamp);
     event interestpayment(uint paymentAmount, uint paymentDate, string paymentMethod);
-    event Transferofshares(address indexed from, address indexed to, uint amount, uint timestamp);
+    event Transferofshares( address indexed to, uint amount, uint timestamp);
     mapping(address => bool)private shareholder;
     mapping(address => uint) private shares;
     uint private totalShares;
-    
+    uint private numShareholders;
 
   struct company{
     uint barrel ;
@@ -44,19 +44,19 @@ contract Oilcompany{
        return true;
  }
 
- function getinterestpayment(uint profit ,uint sharesAmount , uint percentage )public pure returns(bool){
-      uint totalShares = 0;
-    
- }
+ function getInterestPayment(uint profit, uint sharesAmount, uint percentage) public pure returns(uint) {
+    uint interestPayment = profit * percentage / 100 / sharesAmount;
+    return interestPayment;
+}
 
-function changeShareholders(address from , address chairman , address to , uint amount , uint timestamp)public returns(bool){
+function ChangeShareholders( address chairman , address to , uint amount , uint timestamp)public returns(bool){
   require( to != address(0) , "The address is wrong" );
   require(chairman != address(0), "Chairman is not set");
   require(chairman == msg.sender || shareholder[msg.sender] , "This request is not allowed");
   require(amount > 0 && amount <= shares[msg.sender] , "More than the limit");
   shares[msg.sender] -= amount ;
   shares[to] += amount;
-  emit Transferofshares( from, to ,amount, timestamp);
+  emit Transferofshares(to ,amount, timestamp);
   return true;
 }
 }
