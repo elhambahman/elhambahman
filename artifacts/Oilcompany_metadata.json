@@ -119,6 +119,11 @@
 					},
 					{
 						"internalType": "uint256",
+						"name": "sharesAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
 						"name": "amount",
 						"type": "uint256"
 					},
@@ -328,11 +333,11 @@
 	},
 	"sources": {
 		"Oilcompany.sol": {
-			"keccak256": "0x6a1983919c3c7169be0324d722bae501c55a280c4362795b94a93e3479305311",
+			"keccak256": "0x860c37cae9c4cc2d65b8b1a4466b4216cd09a176512f2b671841c4fee9b55c98",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://3f6781870a835b80781a14b01984713d3b4e4241e0090fdcf0d47be9ebd3c58a",
-				"dweb:/ipfs/QmSQ2t9ZMxrF2DhikVZt5qRTa1ep4STL9bJJKkMqGEZCfF"
+				"bzz-raw://3c1bfecb015464c2a7cefe6047328410bc0ad73bb62f6f0c521217f2f23f1518",
+				"dweb:/ipfs/QmYBCE4ZUWHWhZXX7qxaTGsGWzDzvTUberC56LJLT5gFdo"
 			]
 		}
 	},

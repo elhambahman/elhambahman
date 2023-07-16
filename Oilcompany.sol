@@ -49,12 +49,12 @@ contract Oilcompany{
     return interestPayment;
 }
 
-function ChangeShareholders( address chairman , address to , uint amount , uint timestamp)public returns(bool){
+function ChangeShareholders( address chairman , address to ,uint sharesAmount, uint amount , uint timestamp)public returns(bool){
   require( to != address(0) , "The address is wrong" );
   require(chairman != address(0), "Chairman is not set");
   require(chairman == msg.sender || shareholder[msg.sender] , "This request is not allowed");
-  require(amount > 0 && amount <= shares[msg.sender] , "More than the limit");
-  shares[msg.sender] -= amount ;
+  require(amount > 0 && amount <= sharesAmount , "More than the limit");
+  shares[msg.sender] = sharesAmount - amount;
   shares[to] += amount;
   emit Transferofshares(to ,amount, timestamp);
   return true;
