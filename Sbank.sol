@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18 ;
+pragma solidity 0.8.19 ;
+
     contract bank3{
      event Register(address indexed sender, address indexed Operator ,uint amount, bool success);
      event depvosit(address indexed sender , uint amount);
@@ -60,21 +61,21 @@ struct transaction{
         }
         function Deposit(uint _amount)public payable returns(uint){
             balance[msg.sender]+= _amount;
-            emit depvosit(msg.sender , amount);
+            emit depvosit(msg.sender , _amount);
             return balance[msg.sender];
         }
 
         function moneytransfer( address _received, uint _amount)public payable returns (bool){
               require(balance[msg.sender] >= _amount);
-              (bool sent , ) = _received.call{value : amount}("sent");
+              (bool sent , ) = _received.call{value : _amount}("sent");
                require(sent , "Failed to complete");   
               return true;
         } 
 
         function WIthdraw( uint _amount)public payable returns(uint){
-            require(balance[msg.sender] >= amount);
+            require(balance[msg.sender] >= _amount);
             balance[msg.sender] -= _amount ;
-              (bool sent , )= msg.sender.call{value : amount}("sent");
+              (bool sent , )= msg.sender.call{value : _amount}("sent");
               require(sent , "Failed to complete");  
               return balance[msg.sender];  
     }

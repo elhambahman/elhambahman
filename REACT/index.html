@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <title>Document</title>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>my love</h1>
+    <div id="banner"></div>
+    <footer>
+      <p>hi life</p>
+    </footer>
+
+    <script type="text/babel">
+      const Banner = () => {
+        return (
+          <div>
+            <p>banner here</p>
+          </div>
+        );
+      };
+
+      //Render the component here
+      ReactDOM.render(<Banner />, document.getElementById("banner"));
+    </script>
+  </body>
+</html>

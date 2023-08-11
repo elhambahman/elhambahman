@@ -38,5 +38,4 @@ function getTotalSupply()public view returns(uint){
       return true;
        }
 
-
 }
