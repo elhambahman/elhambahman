@@ -21,6 +21,7 @@ contract SchoolRegistration {
 
    function registrationrequest(string memory _name, string memory _fathersname, string memory _Grade,address _home ,  uint _Id,uint _Age, uint _NationalCode) public  returns(bool){
     Register.push(student({name : _name , fathersname : _fathersname , Grade : _Grade , home : _home , Id : _Id , Age : _Age, NationalCode : _NationalCode }));
+    students[studentCount] = Register[Register.length - 1];
     require(bytes(_name).length > 0, "Name is required");
     require(bytes(_fathersname).length > 0, "Father's name is required");
     require(bytes(_Grade).length > 0, "Grade is required");
@@ -29,7 +30,6 @@ contract SchoolRegistration {
     require(_Age > 0, "Age is required");
     require(_NationalCode > 0, "National code is required");
     studentCount++;
-    students[studentCount] = student( _name ,_fathersname, _Grade , _home, _Id, _Age , _NationalCode);
     return true ;
 
 }
