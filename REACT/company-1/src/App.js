@@ -7,13 +7,14 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { Navbar,Image, Container , Nav, NavDropdown ,Button ,Card, ButtonGroup, DropdownButton,Dropdown,Modal, Form , Breadcrumb} from 'react-bootstrap';
 
 function App() {
-  const [show, setShow] = useState(false);
+  const [showLogin, setshowLogin] = useState(false);
+  const [showSignup, setshowSignup] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  const handleClose = () => setshowLogin(false);
+  const handleShow = () => setshowLogin(true);
 
-  const handleClose2 = () => setShow(false);
-  const handleShow2 = () => setShow(true);
+  const handleClose2 = () => setshowSignup(false);
+  const handleShow2 = () => setshowSignup(true);
   return (
     <div className="App"  dir='rtl'>
       <header className="App-header ">
@@ -43,8 +44,8 @@ function App() {
         <ButtonGroup>
         <DropdownButton as={ButtonGroup} title="ورود" id="bg-nested-dropdown">
         <Dropdown.Item eventKey="1" onClick={handleShow}>ورود </Dropdown.Item>
-        <Modal show={show} onHide={handleClose} dir='rtl'>
-        <Modal.Header closeButton>
+        <Modal show={showLogin} onHide={handleClose} dir='rtl'>
+        <Modal.Header closeButton className='float-left'>
           <Modal.Title >ورود کاربر</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -76,7 +77,7 @@ function App() {
       </Modal>
 
         <Dropdown.Item eventKey="2" onClick={handleShow2}>ثبت نام</Dropdown.Item>
-        <Modal show={show} onHide={handleClose2} dir='rtl'>
+        <Modal show={showSignup} onHide={handleClose2} dir='rtl'>
         <Modal.Header closeButton>
           <Modal.Title >ثبت نام کاربر</Modal.Title>
         </Modal.Header>
