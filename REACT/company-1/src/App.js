@@ -45,7 +45,7 @@ function App() {
         <DropdownButton as={ButtonGroup} title="ورود" id="bg-nested-dropdown">
         <Dropdown.Item eventKey="1" onClick={handleShow}>ورود </Dropdown.Item>
         <Modal show={showLogin} onHide={handleClose} dir='rtl'>
-        <Modal.Header closeButton className='float-left'>
+        <Modal.Header closeButton className='closeButten'>
           <Modal.Title >ورود کاربر</Modal.Title>
         </Modal.Header>
         <Modal.Body>
@@ -78,8 +78,8 @@ function App() {
 
         <Dropdown.Item eventKey="2" onClick={handleShow2}>ثبت نام</Dropdown.Item>
         <Modal show={showSignup} onHide={handleClose2} dir='rtl'>
-        <Modal.Header closeButton>
-          <Modal.Title >ثبت نام کاربر</Modal.Title>
+        <Modal.Header closeButton className='closeButten'>
+          <Modal.Title >ورود کاربر</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
@@ -128,7 +128,7 @@ function App() {
  <h1 className='badge bg-primary m-3'>در مسیر تولید و توسعه ی پایدار نفت و گاز</h1>
  </div>
  <div className="d-flex flex-wrap text-center"> 
-  <Card style={{ width: '18rem' }}>
+  <Card style={{ width: '18rem ' }} className='m-5'>
     <Card.Img variant="top" src="./images/33.jpg" />
     <Card.Body>
       <Card.Title>مدیر عامل شرکت نفت</Card.Title>
@@ -137,7 +137,7 @@ function App() {
       <Button variant="primary">ادامه</Button>
     </Card.Body>
   </Card>
-  <Card style={{ width: '18rem' }}>
+  <Card style={{ width: '18rem' }} className='m-5'>
     <Card.Img variant="top" src="./images/34.jpg" />
     <Card.Body>
       <Card.Title>امروز در جلسه</Card.Title>
@@ -146,7 +146,7 @@ function App() {
       <Button variant="primary">ادامه</Button>
     </Card.Body>
   </Card>
-  <Card style={{ width: '18rem' }}>
+  <Card style={{ width: '18rem' }} className='m-5'>
     <Card.Img variant="top" src="./images/35.jpg" />
     <Card.Body>
       <Card.Title>صندوق های بازنشستگی</Card.Title>
@@ -155,7 +155,7 @@ function App() {
       <Button variant="primary">ادامه</Button>
     </Card.Body>
   </Card>
-  <Card style={{ width: '18rem' }}>
+  <Card style={{ width: '18rem' }} className='m-5'>
     <Card.Img variant="top" src="./images/36.jpg" />
     <Card.Body>
       <Card.Title>هیئت‌رئیسه</Card.Title>
