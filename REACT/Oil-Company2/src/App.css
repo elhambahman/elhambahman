@@ -1,0 +1,45 @@
+
+.closeButten{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+  
+  }
+.header {
+    width: 100%;
+    padding-right: 1cm;
+  }
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+  }
+
+  .card {
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px white;
+  }
+  
+  .card:hover .card-title {
+    text-shadow: 2px 2px 4px white;
+  }
+.row{
+  width: 70%;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.button {
+  position: relative;
+  right: 28cm;
+  background-color: #0d6efd;;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.button:hover {
+  background-color: green; 
+ }
