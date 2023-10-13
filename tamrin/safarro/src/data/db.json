@@ -1,0 +1,30 @@
+{
+    "trips" : [
+        {
+            "title" : "4 Night stay in Tehran",
+            "price" : "450T",
+            "id" : "1"
+        },
+        {
+            "title" : "4 Night stay in Isfahan",
+            "price" : "250T",
+            "id" : "2"
+        },
+        {
+            "title" : "4 Night stay in Ardbil",
+            "price" : "100T",
+            "id" : "3"
+        },
+        {
+            "title" : "4 Night stay in Gilan",
+            "price" : "300T",
+            "id" : "4"
+        },
+        {
+            "title" : "4 Night stay in Shiraz",
+            "price" : "350T",
+            "id" : "5"
+        }
+        
+    ]
+}
