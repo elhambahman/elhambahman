@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import{useFormik} from 'formik';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import '../App.css';
 import MyFooter from './MyFooter';
-import { Navbar, Nav, Container, Button, Tabs, Tab, Form, Row,Col , Accordion  } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, Tabs, Tab, Form , Row,Table , Accordion  } from 'react-bootstrap';
+
 import { useNavigate } from 'react-router-dom';
 
 
 
-export default function Addcompany({onAddCompany }) {
+export default function Addcompany() {
   const [barrel, setBarrel] = useState(0);
   const [price, setPrice] = useState(0);
   const [paymentAmount, setPaymentAmount] = useState(0);
@@ -25,18 +25,17 @@ export default function Addcompany({onAddCompany }) {
 
   const navigate = useNavigate();
 
-  const [formData, setFormData] = useState('');
+  const [selectedOption, setSelectedOption] = useState('');
+  const [contractNumber, setContractNumber] = useState('');
 
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onAddCompany({ barrel, price, paymentAmount, paymentDate, percentage, amount, timestamp, totalShares, to, chairman, paymentMethod });
-    const newFormData = 'new form data';
-    setFormData(newFormData);
-
-
+  const handleSelectChange = (event) => {
+    setSelectedOption(event.target.value);
   };
+
+  const handleContractNumberChange = (event) => {
+    setContractNumber(event.target.value);
+  };
+
   return (
     <div dir='rtl'>
       <Navbar expand="lg" className="bg-secondary">
@@ -69,7 +68,7 @@ export default function Addcompany({onAddCompany }) {
   <Form style={{ border: "0.5px solid black"}}>
   <div className="row me-3">
   <div className="col">
-    <Form.Group className="mb-3" onSubmit={handleSubmit}>
+    <Form.Group className="mb-3">
       <Form.Label style={{fontSize : "20px" , margin:"10px"}}>نام کمپانی</Form.Label>
       <Form.Control style={{ border: "0.5px solid black"}} type="text" id="chairman" value={chairman} onChange={e => setChairman(e.target.value)}/>
     </Form.Group>
@@ -128,7 +127,7 @@ export default function Addcompany({onAddCompany }) {
   </div>
   <div className="col">
     <Form.Group className="mb-3">
-      <Form.Label style={{fontSize : "20px" , margin:"10px"}}>مقدار </Form.Label>
+      <Form.Label style={{fontSize : "20px" , margin:"10px"}}>شماره قرارداد </Form.Label>
       <Form.Control style={{ border: "0.5px solid black"}} type="number" id="amount" value={amount} onChange={e => setAmount(e.target.value)}/>
     </Form.Group>
   </div>
@@ -145,22 +144,487 @@ export default function Addcompany({onAddCompany }) {
     </Form.Group>
   </div>
 </div>
-<button className="button m-3" type="submit">Add Company</button>
+<button className="button m-3" type="submit" >ارسال برای بررسی</button>
     </Form>
 </Tab>
 
-      <Tab eventKey="profile" title="کمپانی های در حال بررسی">
-      <Accordion>
+<Tab eventKey="profile" title="کمپانی های در حال بررسی">
+<Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">
-        <Accordion.Header>Accordion Item #1</Accordion.Header>
+        <Accordion.Header>بررسی مشخصات کمپانی</Accordion.Header>
         <Accordion.Body>
-        {setFormData}
+        <h4>اطلاعات مربوط به سهامداران  کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>آدرس سهامدار</th>
+          <th>آدرس مدیرعامل</th>
+          <th> درصد سهام مدیرعامل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+    <br />
+    <br />
+         
+        <br />
+<h4>اطلاعات پرداختی کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>میزان  سود</th>
+          <th>درصد سهام</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </Table>
+    <br />
+    <br />
+    <br />
+    <h4>اطلاعات تولید برای کمپانی</h4>
+    <br />
+    <br />
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>تعداد بشکه های تولید شده در روز</th>
+          <th>قیمت هر بشکه</th>
+          <th>زمان ثبت تولید روزانه</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+    <button className="button m-3 ml-40" type="submit" >عدم تایید </button>
+    <button className="button m-3 ml-40" type="submit" >تایید اطلاعات </button>
+
+
         </Accordion.Body>
       </Accordion.Item>
       </Accordion>
-      </Tab>
+</Tab>
 
       <Tab eventKey="Family" title="خانواده ی ما">
+          <Form.Label style={{fontSize : "15px" , margin:"10px"}}>انتخاب خانواده</Form.Label>
+          <Form.Select style={{ width: "400px" }} aria-label="Default select example" onChange={handleSelectChange}>
+            <option>انتخاب</option>
+      <option value="3">وارد کردن شماره قرارداد</option>
+      <option value="1">آخرین قرارداد </option>
+      <option value="2">مشاهده همه</option>
+    </Form.Select>
+    <br />
+      <br />
+      {selectedOption === '3' && (
+        <Form style={{display :"flex"}}>
+          <Form.Group controlId="contractNumber">
+            <Form.Label style={{width: "330px"}}>شماره قرارداد</Form.Label>
+            <Form.Control />
+          </Form.Group>
+          { <Button type="text" value={contractNumber} onChange={handleContractNumberChange} variant="primary"   className="btn-md m-3">تایید</Button>}
+        </Form>
+      )}
+        {selectedOption === '1' && (
+        <Table striped bordered hover>
+          {<Accordion defaultActiveKey="0">
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>آخرین قرارداد</Accordion.Header>
+        <Accordion.Body>
+        <h4>اطلاعات مربوط به سهامداران  کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>آدرس سهامدار</th>
+          <th>آدرس مدیرعامل</th>
+          <th> درصد سهام مدیرعامل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+    <br />
+    <br />
+         
+        <br />
+<h4>اطلاعات پرداختی کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>میزان  سود</th>
+          <th>درصد سهام</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </Table>
+    <br />
+    <br />
+    <br />
+    <h4>اطلاعات تولید برای کمپانی</h4>
+    <br />
+    <br />
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>تعداد بشکه های تولید شده در روز</th>
+          <th>قیمت هر بشکه</th>
+          <th>زمان ثبت تولید روزانه</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+        </Accordion.Body>
+      </Accordion.Item>
+      </Accordion>}
+        </Table>
+      )}
+           {selectedOption === '2' && (
+        <Table striped bordered hover>
+          { <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>شماره قرارداد #1</Accordion.Header>
+        <Accordion.Body>
+        <h4>اطلاعات مربوط به سهامداران  کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>آدرس سهامدار</th>
+          <th>آدرس مدیرعامل</th>
+          <th> درصد سهام مدیرعامل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+    <br />
+    <br />
+         
+        <br />
+<h4>اطلاعات پرداختی کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>میزان  سود</th>
+          <th>درصد سهام</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </Table>
+    <br />
+    <br />
+    <br />
+    <h4>اطلاعات تولید و ارسال برای کمپانی</h4>
+    <br />
+    <br />
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>تعداد بشکه های تولید شده در روز</th>
+          <th>قیمت هر بشکه</th>
+          <th>زمان ثبت تولید روزانه</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header> شماره قرارداد#2</Accordion.Header>
+        <Accordion.Body>
+        <h4>اطلاعات مربوط به سهامداران  کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>آدرس سهامدار</th>
+          <th>آدرس مدیرعامل</th>
+          <th> درصد سهام مدیرعامل</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+    <br />
+    <br />
+         
+        <br />
+<h4>اطلاعات پرداختی کمپانی</h4>
+          <br />     
+          <br />
+
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>میزان  سود</th>
+          <th>درصد سهام</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+      </Table>
+    <br />
+    <br />
+    <br />
+    <h4>اطلاعات تولید برای کمپانی</h4>
+    <br />
+    <br />
+        <Table striped bordered hover>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>تعداد بشکه های تولید شده در روز</th>
+          <th>قیمت هر بشکه</th>
+          <th>زمان ثبت تولید روزانه</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td colSpan={2}></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </Table>
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>}
+        </Table>
+      )}
+
       </Tab>
       </Tabs>
     </div>
