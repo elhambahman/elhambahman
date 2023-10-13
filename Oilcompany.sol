@@ -37,33 +37,33 @@ contract Oilcompany{
   company[] oil ;
 
 
-function setStatusPending(address company) public {
+function setStatusPending(address _company) public {
         require(statusChangers[msg.sender], "Only a status changer can change the status.");
-        companyStatus[company] = Status.Pending;
+        companyStatus[_company] = Status.Pending;
     }
 
-    function setStatusUnderReview(address company) public {
+    function setStatusUnderReview(address _company) public {
         require(statusChangers[msg.sender], "Only a status changer can change the status.");
-        companyStatus[company] = Status.UnderReview;
+        companyStatus[_company] = Status.UnderReview;
     }
 
-    function setStatusApproved(address company) public {
+    function setStatusApproved(address _company) public {
         require(statusChangers[msg.sender], "Only a status changer can change the status.");
-        companyStatus[company] = Status.Approved;
+        companyStatus[_company] = Status.Approved;
     }
 
-    function setStatusRejected(address company) public {
+    function setStatusRejected(address _company) public {
         require(statusChangers[msg.sender], "Only a status changer can change the status.");
-        companyStatus[company] = Status.Rejected;
+        companyStatus[_company] = Status.Rejected;
     }
 
-    function setStatusFinalized(address company) public {
+    function setStatusFinalized(address _company) public {
         require(statusChangers[msg.sender], "Only a status changer can change the status.");
-        companyStatus[company] = Status.Finalized;
+        companyStatus[_company] = Status.Finalized;
     }
 
-    function getStatus(address company) public view returns (Status) {
-        return companyStatus[company];
+    function getStatus(address _company) public view returns (Status) {
+        return companyStatus[_company];
     }
 
   function addcompany(uint _barrel,uint _price , uint _paymentAmount , uint _paymentDate , uint _percentage , uint _amount , uint _timestamp ,uint _totalShares , address _to,address _chairman , string memory _paymentMethod) public{
