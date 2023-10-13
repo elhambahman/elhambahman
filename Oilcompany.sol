@@ -11,6 +11,16 @@ contract Oilcompany{
     uint private totalShares;
     uint private numShareholders;
 
+    enum Status { Pending, UnderReview , Approved, Rejected, Finalized }
+    mapping(address => Status) public companyStatus;
+    mapping(address => bool) public statusChangers;
+
+     constructor(address[] memory _statusChangers) {
+        for (uint i = 0; i < _statusChangers.length; i++) {
+            statusChangers[_statusChangers[i]] = true;
+        }
+    }
+
   struct company{
     uint barrel ;
     uint price;
@@ -25,6 +35,36 @@ contract Oilcompany{
     string paymentMethod;
   }
   company[] oil ;
+
+
+function setStatusPending(address company) public {
+        require(statusChangers[msg.sender], "Only a status changer can change the status.");
+        companyStatus[company] = Status.Pending;
+    }
+
+    function setStatusUnderReview(address company) public {
+        require(statusChangers[msg.sender], "Only a status changer can change the status.");
+        companyStatus[company] = Status.UnderReview;
+    }
+
+    function setStatusApproved(address company) public {
+        require(statusChangers[msg.sender], "Only a status changer can change the status.");
+        companyStatus[company] = Status.Approved;
+    }
+
+    function setStatusRejected(address company) public {
+        require(statusChangers[msg.sender], "Only a status changer can change the status.");
+        companyStatus[company] = Status.Rejected;
+    }
+
+    function setStatusFinalized(address company) public {
+        require(statusChangers[msg.sender], "Only a status changer can change the status.");
+        companyStatus[company] = Status.Finalized;
+    }
+
+    function getStatus(address company) public view returns (Status) {
+        return companyStatus[company];
+    }
 
   function addcompany(uint _barrel,uint _price , uint _paymentAmount , uint _paymentDate , uint _percentage , uint _amount , uint _timestamp ,uint _totalShares , address _to,address _chairman , string memory _paymentMethod) public{
     oil.push(company({barrel : _barrel , price : _price , paymentAmount : _paymentAmount , paymentDate : _paymentDate , percentage : _percentage , amount : _amount , timestamp : _timestamp ,totalShares : _totalShares , to : _to , chairman : _chairman, paymentMethod : _paymentMethod }));
